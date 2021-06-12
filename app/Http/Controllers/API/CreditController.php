@@ -117,7 +117,7 @@ class CreditController extends Controller
      */
     public function destroy($id)
     {
-        //Recibe el id del registro a eliminar , lo elimina retorna a la vista de nuevo con un mensaje de exito
+        //Recibe el id del registro a eliminar , lo elimina retorna a la vista de nuevo con un mensaje de exito al usuario
         $credit = Credit::findOrFail($id);
         $credit->delete();
         
