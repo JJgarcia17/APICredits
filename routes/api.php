@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\CreditController;
+use App\Http\Controllers\ClientController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/credits/{id?}',[CreditController::class,'read']);
 // Route::get('/amount' , [CreditController::class, 'amount']);
 Route::get('/amount/{id?}' , [CreditController::class, 'amount']);
+Route::get('/client/{id?}' , [ClientController::class, 'allUserName'])->name('all-user-name');

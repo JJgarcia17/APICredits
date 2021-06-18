@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\CreditController;
-
+use App\Http\Controllers\ClientController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,3 +33,6 @@ Route::get('/crud/{id?}' , [CreditController::class, 'view'])->name('crud');
 Route::patch('/crud/{id}' , [CreditController::class, 'update'])->name('update');
 //DELETE
 Route::delete('/crud/{id}' , [CreditController::class, 'destroy'])->name('destroy');
+
+
+Route::post('client/' , [ClientController::class, 'store'])->name('save_client');

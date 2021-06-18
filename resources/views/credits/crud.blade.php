@@ -16,6 +16,7 @@
         <h2 class="text-center">CRUD CREDITS</h2>
         @include('common.success')
     @include('credits.create')
+    @include('client.create')
         <table class="table crud_table">
             <thead>
               <tr>
@@ -42,7 +43,8 @@
                         <form id="delete-form" action="{{route('destroy',$credit->id)}}" method="POST" class="d-none delete-form">
                             @method('DELETE')
                             @csrf
-                            <td><button class="btn btn-outline-danger"type="submit"><i class="bi bi-trash-fill"></i></button></td>
+                            <td>
+                                <button class="btn btn-outline-danger delete" type="submit"><i class="bi bi-trash-fill"></i></button></td>
                         </form>
                     </td>
                 </tr>
@@ -53,6 +55,7 @@
         {{$credits->links()}}
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <script src="{{asset('js/ajax.js')}}"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
@@ -66,7 +69,7 @@
         </script>
     @endif
     <script>
-                // document.addEventListener("submit", (e) =>{
+                document.addEventListener("submit", (e) =>{
                     if(e.target.matches(".delete-form"))
                         {
                             e.preventDefault();
@@ -88,5 +91,8 @@
                 });
             
     </script>
+    @if ($errors->any())
+
+    @endif
 </body>
 </html>

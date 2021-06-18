@@ -75,6 +75,13 @@ class CreditController extends Controller
     public function store(Request $request)
     {
         //Recibe los datos en la variable $request de la vista, Guarda los datos y retorna a la vista de nuevo
+
+        $request->validate([
+            "client_id" => 'required|integer',
+            "date" => 'required|date',
+            "description" => 'required|string',
+            "amount" =>'required'
+        ]);
         Credit::create($request->only('client_id','date','description','amount'));
 
         return redirect()->route('crud')->with('status','Record saved successfully');
@@ -99,7 +106,15 @@ class CreditController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
+    
     {   
+
+        $request->validate([
+            "client_id" => 'required|integer',
+            "date" => 'required|date',
+            "description" => 'required|string',
+            "amount" =>'required'
+        ]);
         //Recibe los datos en la variable $request de la vista, actualiza los datos y retorna a la vista de nuevo
         $credit = Credit::findOrFail($id);
         $data = $request->only('client_id','date','description','amount');
