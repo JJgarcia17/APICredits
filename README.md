@@ -60,3 +60,17 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+### Rutas API
+
+- **http://apicredits.me/api/credits** Todos los creditos 
+- **http://apicredits.me/api/credits/{id}** Creditos por client_id
+- **http://apicredits.me/api/amount** Los montos totales de todos los usuarios
+- **http://apicredits.me/api/amount/{id}** Monto solo por usuario
+
+### Rutas VIEW
+
+- **http://apicredits.me/crud**
+
+Use laragon para genere un servidor dinamico por eso tiene esa url
